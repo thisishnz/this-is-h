@@ -15,7 +15,7 @@ No build step, no framework, no dependencies. Semantic HTML, one CSS file, one s
 │   ├── css/style.css          design system + all styling
 │   ├── js/main.js             mobile menu, sticky header, scroll-reveal, accordion behaviour
 │   └── img/
-│       ├── favicon.svg        placeholder favicon (coral square + "H")
+│       ├── favicon.svg        placeholder favicon (forest-green square + "H")
 │       └── og-image.svg       placeholder social-share image (1200×630)
 ├── CNAME                      custom domain for GitHub Pages (thisish.org.nz)
 ├── robots.txt
@@ -93,34 +93,34 @@ Whichever you choose, add the records at your domain registrar (wherever `thisis
 | What | Where |
 |---|---|
 | Any copy/wording | `index.html` — it's plain text between tags, no templating |
-| Email address | Search-and-replace `hello@thisish.org.nz` in `index.html` (appears in the nav, hero, contact section and footer) |
-| Mailto subject line | The `mailto:` links include `?subject=Starting%20a%20conversation%20with%20H` — edit the URL-encoded text after `subject=` to change it |
+| Email address | Search-and-replace `hello@thisish.org.nz` in `index.html` (appears in the hero, contact section and footer) |
 | Navigation links/labels | `<div class="site-nav-panel">` near the top of `index.html` |
 | Footer placeholder links (Privacy, Terms, LinkedIn) | `<ul class="footer-legal">` in the footer — currently `href="#"`, replace with real URLs once they exist |
-| Brand colours | CSS custom properties at the top of `assets/css/style.css`, under `:root` — `--coral`, `--coral-deep`, `--cream`, `--ink`, etc. Changing these updates the whole site |
+| Brand colours | CSS custom properties at the top of `assets/css/style.css`, under `:root` — `--green`, `--green-deep`, `--pink`, `--pink-deep`, `--cream`, `--ink`, etc. Changing these updates the whole site |
 | Fonts | The Google Fonts `<link>` in the `<head>` of `index.html`, and the `--font-display` / `--font-body` / `--font-script` variables in `style.css` |
 | Logo | See section 7 below |
 | Page title / meta description / social preview text | `<title>` and `<meta name="description">` etc. in the `<head>` of `index.html` |
 | Accordion questions & answers ("What can H help with?") | `<div class="problems-list">` in `index.html` — each is a `<details class="problem">` block; add or remove blocks freely, the accordion behaviour is automatic |
-| The five "Small by design" principles | `<div class="principles-grid">` |
 | The four core offer cards | `<div class="offer-grid">` |
+| The "Why H" copy | `<section class="section-alt" id="why-h">` — this is the one section that explains H (kept deliberately short; see section 6 below) |
 
 ---
 
 ## 6. Design decisions (short version)
 
-- **Palette**: coral (`#e8543e`) as the one bold accent, used sparingly — the logo block, buttons, small marks and rules — against a mostly black-on-white/cream editorial layout, per the brand direction of *"bold because it's used selectively, not coral everywhere."*
-- **Type**: Space Grotesk for headings (confident, architectural, a bit technical without being cold), Inter for body copy (highly legible, neutral), and Caveat used *only* inside the logo lockup for the "this is" script — deliberately not reused elsewhere so it doesn't tip into twee.
-- **No stock imagery, no gradients, no card-heavy layout, no rounded-pill everything** — sections lean on typography, rules, and whitespace rather than decoration, in the direction of Linear/Stripe/Notion rather than a typical consultancy or SaaS template.
+- **Palette**: warm cream/off-white as the primary background, deep forest green (`--green`, `--green-deep`) as the dominant brand colour, and soft pink (`--pink`, `--pink-deep`) reserved for punctuation — fine rules, small labels, hover states, subtle backgrounds. Pink is never used as a large fill.
+- **Type**: Fraunces (a serif) for headings — warm, editorial, human rather than corporate — Inter for body copy (highly legible, neutral), and Caveat used *only* inside the logo lockup for the "this is" script — deliberately not reused elsewhere so it doesn't tip into twee.
+- **No photography, no stock imagery, no botanical/decorative illustration, no gradients, no card-heavy layout** — sections lean on typography, rules, and generous whitespace rather than decoration, aiming for a calm, quiet, editorial feel rather than a typical consultancy or SaaS template.
 - **The accordion uses native `<details>`/`<summary>`**, not custom JS — it's keyboard- and screen-reader-accessible by default, and still works with JavaScript disabled.
 - **All content is visible without JavaScript.** The scroll-reveal fade-in is opt-in: CSS shows every section by default, and only once `main.js` confirms it's actually running does it hide sections for the fade-in effect. If a script fails to load, nothing on the page is ever lost or hidden.
-- **One page, six nav anchors** — matching the brief's instruction to ship this as a single, highly-polished page rather than a multi-page site at this stage.
+- **One page, deliberately short** — hero, problem accordion, support offer, a standalone "Built for the for-purpose sector" statement, one consolidated "Why H" section, working-together, contact, footer. Nav links to four of those (Home, What H helps with, Why H, Say hello); the rest are reachable by scrolling. Earlier drafts had more separate sections explaining H (why H / how H works / small by design / philosophy / about) — these were deliberately merged into one "Why H" section to keep the page short, quiet and confident rather than over-explained.
+- **Language**: H is intentionally a one-person organisation, so copy avoids "we"/"our"/"our team" in H's own voice — it uses "H", "you" and "your" instead. (The problem-list questions are written in the visitor's own voice — e.g. "We need to buy a property" — which is a different case and is left as-is.)
 
 ---
 
 ## 7. Replacing the placeholder logo
 
-No logo file was provided to this build, so the wordmark is currently recreated in HTML/CSS rather than as an image — a coral block with "this is" in a script font next to a bold "H" (see `.logo-mark` in `style.css`, used in the nav, hero and footer).
+No logo file was provided to this build, so the wordmark is currently recreated in HTML/CSS rather than as an image — a forest-green block with "this is" in a script font next to a bold "H" (see `.logo-mark` in `style.css`, used in the nav and footer).
 
 To swap in the real logo file once you have it exported:
 
