@@ -722,6 +722,114 @@ html.js-reveal .reveal.is-visible {
   color: var(--ink);
 }
 
+/* ---------- Why H (brand moment) ----------
+   A distinctive pause rather than another text section: a giant H with a
+   single word cycling beside it ("H is Home." / "House." / "Haven." /
+   "Help." / "yours to define."). The word list is real content — always
+   present, always readable — and only becomes an animated, one-at-a-time
+   cycle once main.js confirms JS is running and the visitor hasn't asked
+   for reduced motion (see the .js-cycle gate below and the .reveal
+   comment above for the same progressive-enhancement approach). */
+.why-h-feature {
+  background: var(--green-deep);
+  color: var(--cream-soft);
+  text-align: center;
+}
+
+.why-h-feature .eyebrow {
+  color: var(--pink);
+}
+
+.why-h-feature__heading {
+  max-width: 20ch;
+  margin: 0 auto;
+  color: var(--cream-soft);
+}
+
+.why-h-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+  row-gap: 4px;
+  margin: 12px 0 44px;
+}
+
+.why-h-mark__glyph {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(96px, 18vw, 200px);
+  line-height: 0.85;
+  color: var(--cream-soft);
+}
+
+.why-h-mark__phrase {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 40px);
+}
+
+.why-h-mark__is {
+  color: rgba(248, 242, 230, 0.6);
+}
+
+.why-h-mark__words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.4em;
+  color: var(--pink);
+}
+
+/* Animated single-word cycle — only once main.js has added .js-cycle */
+html.js-cycle .why-h-mark__words {
+  position: relative;
+  display: inline-block;
+  min-height: 1.2em;
+  min-width: 11ch;
+  text-align: center;
+}
+
+html.js-cycle .why-h-mark__words li {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+html.js-cycle .why-h-mark__words li.is-active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-h-feature__copy {
+  max-width: 46ch;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+
+.why-h-feature__copy .lede {
+  margin-top: 0;
+  color: rgba(248, 242, 230, 0.86);
+}
+
+.why-h-feature__prompt {
+  margin-top: 36px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 2.2vw, 23px);
+  color: var(--cream-soft);
+}
+
 /* ---------- Working together ---------- */
 .together-grid {
   display: grid;

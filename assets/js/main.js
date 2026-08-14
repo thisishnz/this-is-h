@@ -91,6 +91,21 @@
     });
   });
 
+  /* "Why H" word cycle — content is a real, always-visible list by default
+     (see .why-h-mark__words in style.css); this only switches it to an
+     animated one-at-a-time cycle once we know JS is running and motion
+     hasn't been switched off. */
+  var whyHWords = document.querySelectorAll(".why-h-mark__words li");
+  if (whyHWords.length && !prefersReducedMotion) {
+    document.documentElement.classList.add("js-cycle");
+    var whyHIndex = 0;
+    setInterval(function () {
+      whyHWords[whyHIndex].classList.remove("is-active");
+      whyHIndex = (whyHIndex + 1) % whyHWords.length;
+      whyHWords[whyHIndex].classList.add("is-active");
+    }, 2400);
+  }
+
   /* Footer year */
   var yearEl = document.getElementById("current-year");
   if (yearEl) {
