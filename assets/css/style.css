@@ -722,47 +722,41 @@ html.js-reveal .reveal.is-visible {
   color: var(--ink);
 }
 
-/* ---------- Why H (name-meaning brand moment) ----------
-   A deliberate visual break from the rest of the page: dark forest-green
-   fill (the only section that uses it as a background rather than text),
-   a large decorative "H" and a phrase that cycles through what H can
-   stand for. The cycling is CSS-only (no JS dependency) so it still works
-   with JavaScript disabled. By default every phrase is shown as a plain
-   stacked list — fully visible, nothing hidden. The animated crossfade is
-   layered on only under html.js-reveal, which main.js already limits to
-   "JS is running and the user hasn't asked for reduced motion" for the
-   scroll-reveal effect above — reusing that same flag here means this
-   section automatically falls back to the static list for both no-JS and
-   prefers-reduced-motion, with no extra script needed. */
+/* ---------- Why H (name-meaning) ----------
+   Sits on the same warm stone tone as the other .section-alt sections
+   rather than a standalone colour block, so it reads as part of the
+   page's existing rhythm rather than a separate marketing moment. The
+   only flourishes are a quiet oversized "H" and a slow, gentle crossfade
+   through a few examples of what H can stand for — kept unhurried and
+   low-contrast on purpose, since the point is that these are examples,
+   not a definition. The cycling is CSS-only (no JS dependency) so it
+   still works with JavaScript disabled. By default every phrase is shown
+   as a plain stacked list — fully visible, nothing hidden. The animated
+   crossfade is layered on only under html.js-reveal, which main.js
+   already limits to "JS is running and the user hasn't asked for reduced
+   motion" for the scroll-reveal effect above — reusing that same flag
+   here means this section automatically falls back to the static list
+   for both no-JS and prefers-reduced-motion, with no extra script needed. */
 .why-h {
-  background: var(--green-deep);
-  color: var(--cream-soft);
   text-align: center;
   overflow: hidden;
-}
-
-.why-h .eyebrow {
-  color: var(--pink);
-}
-
-.why-h h2 {
-  color: var(--cream-soft);
 }
 
 .h-mark {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(12px, 3vw, 28px);
-  margin: clamp(28px, 6vw, 56px) 0;
+  gap: clamp(10px, 2.5vw, 22px);
+  margin: clamp(24px, 5vw, 44px) 0;
 }
 
 .h-mark__glyph {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(96px, 22vw, 260px);
+  font-size: clamp(76px, 16vw, 176px);
   line-height: 0.8;
-  color: var(--cream-soft);
+  color: var(--green-deep);
+  opacity: 0.92;
   user-select: none;
   position: relative;
 }
@@ -770,10 +764,10 @@ html.js-reveal .reveal.is-visible {
 .h-mark__glyph::after {
   content: "";
   display: block;
-  width: 56px;
+  width: 44px;
   height: 2px;
   background: var(--pink);
-  margin: 0.12em auto 0;
+  margin: 0.14em auto 0;
 }
 
 .h-mark__rotator {
@@ -781,9 +775,9 @@ html.js-reveal .reveal.is-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  font-size: clamp(22px, 3.2vw, 34px);
+  font-size: clamp(18px, 2.4vw, 25px);
 }
 
 .h-mark__word {
@@ -794,19 +788,19 @@ html.js-reveal .reveal.is-visible {
 }
 
 .h-mark__prefix {
-  color: rgba(248, 242, 230, 0.82);
+  color: var(--ink-soft);
   margin-right: 0.3em;
 }
 
 .h-mark__value {
-  color: var(--pink);
+  color: var(--pink-deep);
 }
 
 .why-h__words {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(18px, 2vw, 22px);
-  color: var(--cream-soft);
+  font-weight: 500;
+  font-size: clamp(16.5px, 1.8vw, 19px);
+  color: var(--ink-soft);
   max-width: 46ch;
   margin: 0 auto;
 }
@@ -818,20 +812,16 @@ html.js-reveal .reveal.is-visible {
   margin: 0 auto;
 }
 
-.why-h .lede {
-  color: rgba(248, 242, 230, 0.82);
-  margin: 0;
-}
-
 .why-h__question {
-  margin-top: clamp(16px, 3vw, 28px);
+  margin-top: clamp(14px, 2.5vw, 24px);
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(24px, 3vw, 32px);
-  color: var(--cream-soft);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(19px, 2.2vw, 24px);
+  color: var(--green-deep);
 }
 
-/* Enhanced state: overlap the phrases and crossfade between them. */
+/* Enhanced state: overlap the phrases and crossfade between them, slowly. */
 html.js-reveal .h-mark__rotator {
   display: block;
   min-height: 2.6em;
@@ -845,45 +835,45 @@ html.js-reveal .h-mark__word {
   justify-content: center;
   text-align: center;
   opacity: 0;
-  animation: h-rotate 20.4s var(--ease) infinite;
+  animation: h-rotate 24s var(--ease) infinite;
 }
 
 html.js-reveal .h-mark__word:nth-child(1) {
   animation-delay: -0.1s;
 }
 html.js-reveal .h-mark__word:nth-child(2) {
-  animation-delay: -3.5s;
+  animation-delay: -4s;
 }
 html.js-reveal .h-mark__word:nth-child(3) {
-  animation-delay: -6.9s;
+  animation-delay: -8s;
 }
 html.js-reveal .h-mark__word:nth-child(4) {
-  animation-delay: -10.3s;
+  animation-delay: -12s;
 }
 html.js-reveal .h-mark__word:nth-child(5) {
-  animation-delay: -13.7s;
+  animation-delay: -16s;
 }
 html.js-reveal .h-mark__word:nth-child(6) {
-  animation-delay: -17.1s;
+  animation-delay: -20s;
 }
 
 @keyframes h-rotate {
   0%,
   100% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
-  1.5% {
+  2% {
     opacity: 1;
     transform: translateY(0);
   }
-  14.5% {
+  14% {
     opacity: 1;
     transform: translateY(0);
   }
   16.5% {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
 }
 
@@ -891,16 +881,16 @@ html.js-reveal .h-mark__word:nth-child(6) {
   .h-mark {
     flex-direction: row;
     justify-content: center;
-    gap: clamp(24px, 5vw, 56px);
+    gap: clamp(20px, 4vw, 44px);
   }
 
   .h-mark__glyph::after {
-    margin: 0.12em 0 0;
+    margin: 0.14em 0 0;
   }
 
   .h-mark__rotator {
     width: auto;
-    min-width: 320px;
+    min-width: 300px;
     text-align: left;
   }
 
