@@ -722,6 +722,194 @@ html.js-reveal .reveal.is-visible {
   color: var(--ink);
 }
 
+/* ---------- Why H (name-meaning brand moment) ----------
+   A deliberate visual break from the rest of the page: dark forest-green
+   fill (the only section that uses it as a background rather than text),
+   a large decorative "H" and a phrase that cycles through what H can
+   stand for. The cycling is CSS-only (no JS dependency) so it still works
+   with JavaScript disabled. By default every phrase is shown as a plain
+   stacked list — fully visible, nothing hidden. The animated crossfade is
+   layered on only under html.js-reveal, which main.js already limits to
+   "JS is running and the user hasn't asked for reduced motion" for the
+   scroll-reveal effect above — reusing that same flag here means this
+   section automatically falls back to the static list for both no-JS and
+   prefers-reduced-motion, with no extra script needed. */
+.why-h {
+  background: var(--green-deep);
+  color: var(--cream-soft);
+  text-align: center;
+  overflow: hidden;
+}
+
+.why-h .eyebrow {
+  color: var(--pink);
+}
+
+.why-h h2 {
+  color: var(--cream-soft);
+}
+
+.h-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+  margin: clamp(28px, 6vw, 56px) 0;
+}
+
+.h-mark__glyph {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(96px, 22vw, 260px);
+  line-height: 0.8;
+  color: var(--cream-soft);
+  user-select: none;
+  position: relative;
+}
+
+.h-mark__glyph::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--pink);
+  margin: 0.12em auto 0;
+}
+
+.h-mark__rotator {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font-size: clamp(22px, 3.2vw, 34px);
+}
+
+.h-mark__word {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.h-mark__prefix {
+  color: rgba(248, 242, 230, 0.82);
+  margin-right: 0.3em;
+}
+
+.h-mark__value {
+  color: var(--pink);
+}
+
+.why-h__words {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--cream-soft);
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+.why-h__body {
+  display: grid;
+  gap: 16px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.why-h .lede {
+  color: rgba(248, 242, 230, 0.82);
+  margin: 0;
+}
+
+.why-h__question {
+  margin-top: clamp(16px, 3vw, 28px);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--cream-soft);
+}
+
+/* Enhanced state: overlap the phrases and crossfade between them. */
+html.js-reveal .h-mark__rotator {
+  display: block;
+  min-height: 2.6em;
+}
+
+html.js-reveal .h-mark__word {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  animation: h-rotate 20.4s var(--ease) infinite;
+}
+
+html.js-reveal .h-mark__word:nth-child(1) {
+  animation-delay: -0.1s;
+}
+html.js-reveal .h-mark__word:nth-child(2) {
+  animation-delay: -3.5s;
+}
+html.js-reveal .h-mark__word:nth-child(3) {
+  animation-delay: -6.9s;
+}
+html.js-reveal .h-mark__word:nth-child(4) {
+  animation-delay: -10.3s;
+}
+html.js-reveal .h-mark__word:nth-child(5) {
+  animation-delay: -13.7s;
+}
+html.js-reveal .h-mark__word:nth-child(6) {
+  animation-delay: -17.1s;
+}
+
+@keyframes h-rotate {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  1.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  14.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  16.5% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (min-width: 700px) {
+  .h-mark {
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 56px);
+  }
+
+  .h-mark__glyph::after {
+    margin: 0.12em 0 0;
+  }
+
+  .h-mark__rotator {
+    width: auto;
+    min-width: 320px;
+    text-align: left;
+  }
+
+  html.js-reveal .h-mark__word {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
 /* ---------- Working together ---------- */
 .together-grid {
   display: grid;
