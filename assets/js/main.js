@@ -91,6 +91,34 @@
     });
   });
 
+  /* Notes from H (Kit signup) — Kit renders its own default button label
+     and placeholder into the form once its embed script loads. This only
+     ever edits visible text nodes, never field names or the form's action/
+     method, so it can't affect what Kit collects. Kept watching via
+     MutationObserver since Kit mounts asynchronously and may re-render the
+     form (e.g. after a validation error). */
+  var notesForm = document.querySelector(".notes-signup__form");
+  if (notesForm) {
+    var relabelNotesForm = function () {
+      var submit = notesForm.querySelector('button[data-element="submit"], .formkit-submit');
+      if (submit) {
+        var label = submit.querySelector("span") || submit;
+        if (label.textContent.trim() && label.textContent.trim() !== "Send me the notes") {
+          label.textContent = "Send me the notes";
+        }
+      }
+
+      var input = notesForm.querySelector('input[type="email"]');
+      if (input) {
+        input.setAttribute("placeholder", "Email address");
+        input.setAttribute("aria-label", "Email address");
+      }
+    };
+
+    relabelNotesForm();
+    new MutationObserver(relabelNotesForm).observe(notesForm, { childList: true, subtree: true });
+  }
+
   /* Footer year */
   var yearEl = document.getElementById("current-year");
   if (yearEl) {

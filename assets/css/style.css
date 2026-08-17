@@ -745,6 +745,145 @@ html.js-reveal .reveal.is-visible {
   max-width: 60ch;
 }
 
+/* ---------- Notes from H (Kit email signup) ----------
+   The form markup itself (input, button, alerts) comes from Kit's embed
+   script, not this page — Kit needs its own field names/handlers intact to
+   collect the email address, so nothing here touches structure, only the
+   visual layer. Kit injects its own scoped <style> alongside the form, so
+   !important is used to reliably win over it regardless of load order. */
+.notes-signup {
+  background: var(--stone);
+  text-align: center;
+}
+
+.notes-signup__inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.notes-signup__form {
+  margin-top: 32px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.notes-signup__form .formkit-form,
+.notes-signup__form .seva-form {
+  all: unset;
+  display: block;
+  width: 100%;
+  font-family: var(--font-body) !important;
+}
+
+.notes-signup__form .formkit-alert {
+  display: block;
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.notes-signup__form .formkit-alert-error {
+  color: var(--pink-deep);
+}
+
+.notes-signup__form .formkit-alert-success {
+  color: var(--green-deep);
+}
+
+.notes-signup__form [data-element="fields"],
+.notes-signup__form .formkit-fields {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.notes-signup__form .formkit-field {
+  flex: 1 1 240px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.notes-signup__form .formkit-input {
+  width: 100% !important;
+  height: auto !important;
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  color: var(--ink) !important;
+  background: var(--paper) !important;
+  border: 1.5px solid var(--stone-line) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 14px 18px !important;
+  min-height: 48px !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s var(--ease);
+}
+
+.notes-signup__form .formkit-input::placeholder {
+  color: var(--ink-faint) !important;
+  opacity: 1 !important;
+}
+
+.notes-signup__form .formkit-input:focus {
+  border-color: var(--green) !important;
+  outline: none !important;
+}
+
+.notes-signup__form .formkit-submit {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  width: auto !important;
+  height: auto !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.01em !important;
+  color: var(--cream-soft) !important;
+  background: var(--green-deep) !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 15px 28px !important;
+  min-height: 48px !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.notes-signup__form .formkit-submit:hover {
+  background: var(--green-hover) !important;
+  transform: translateY(-1px);
+}
+
+.notes-signup__form .formkit-spinner div {
+  background: var(--cream-soft) !important;
+}
+
+.notes-signup__form [data-element="success"] p,
+.notes-signup__form .formkit-success-message {
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: var(--ink-soft) !important;
+}
+
+.notes-signup__form .formkit-powered-by-convertkit-container,
+.notes-signup__form .formkit-powered-by,
+.notes-signup__form .formkit-guarantee,
+.notes-signup__form [data-element="powered-by"] {
+  display: none !important;
+}
+
 /* ---------- Contact ---------- */
 .contact {
   text-align: center;
