@@ -432,15 +432,53 @@ h3 {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-top: clamp(64px, 10vw, 96px);
-  padding-bottom: clamp(72px, 10vw, 120px);
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(40px, 9vw, 64px);
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+  padding-top: 0;
+  padding-bottom: clamp(56px, 9vw, 96px);
+}
+
+/* Giant H — a graphic element, not a logo. Deliberately unbounded by the
+   .wrap grid so it can press toward (and past) the edge of the viewport;
+   .hero's overflow:hidden clips the bleed instead of causing a scrollbar. */
+.hero__giant-h {
+  position: relative;
+  display: block;
+  width: fit-content;
+  padding-left: clamp(2px, 1.5vw, 14px);
+  margin: 0 0 clamp(4px, 1.5vw, 12px);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(180px, 58vw, 280px);
+  line-height: 0.72;
+  color: var(--green-deep);
+  opacity: 0;
+  animation: fade-in 0.9s var(--ease) forwards;
+  user-select: none;
+}
+
+.hero__giant-h::after {
+  content: "";
+  position: absolute;
+  left: 0.16em;
+  right: 0.34em;
+  bottom: 0.1em;
+  height: clamp(4px, 0.8vw, 8px);
+  background: var(--pink);
+  border-radius: 2px;
 }
 
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(38px, 6vw, 68px);
-  line-height: 1.08;
+  font-size: clamp(28px, 4.4vw, 52px);
+  line-height: 1.12;
   letter-spacing: -0.015em;
   max-width: 16ch;
   color: var(--ink);
@@ -515,7 +553,17 @@ html.js-reveal .reveal.is-visible {
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .hero__giant-h,
   .hero h1,
   .hero__body,
   .hero__actions {
@@ -720,6 +768,50 @@ html.js-reveal .reveal.is-visible {
   max-width: 24ch;
   margin: 0 auto;
   color: var(--ink);
+}
+
+/* ---------- Why H (typographic word strip) ---------- */
+.h-words {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(18px, 3.2vw, 40px);
+  row-gap: clamp(8px, 2vw, 16px);
+  margin: clamp(36px, 6vw, 56px) 0 clamp(24px, 4vw, 36px);
+}
+
+.h-word {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* .reveal's own transition shorthand (higher specificity, see below) would
+   otherwise reset delay to 0 — this selector has to out-specify it so each
+   word steps in slightly after the last instead of all at once. */
+html.js-reveal .h-words .h-word.reveal {
+  transition-delay: calc(var(--i, 0) * 0.05s);
+}
+
+.h-word--lg {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 600;
+}
+
+.h-word--accent {
+  color: var(--green-deep);
+}
+
+.h-words__more {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(19px, 2.1vw, 25px);
+  color: var(--pink-deep);
+  margin-bottom: clamp(20px, 3vw, 28px);
 }
 
 /* ---------- Working together ---------- */
@@ -979,6 +1071,38 @@ html.js-reveal .reveal.is-visible {
 .footer-note {
   font-size: 13.5px;
   color: rgba(248, 242, 230, 0.62);
+}
+
+/* ---------- Hero: wide-viewport editorial layout ----------
+   Below this, the H sits stacked above the copy (mobile-first rules
+   above). From here up, it becomes an oversized side element that bleeds
+   past the right edge while the copy holds a quiet column on the left,
+   aligned to the same left margin as the rest of the page. */
+@media (min-width: 1040px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: min(88svh, 820px);
+    padding-top: clamp(96px, 10vw, 120px);
+  }
+
+  .hero .wrap {
+    max-width: 640px;
+    margin-left: 0;
+    margin-right: auto;
+    padding-bottom: 0;
+  }
+
+  .hero__giant-h {
+    position: absolute;
+    top: 50%;
+    right: clamp(-9vw, -4vw, 1vw);
+    transform: translateY(-50%);
+    margin: 0;
+    padding-left: 0;
+    font-size: clamp(360px, 44vw, 720px);
+    z-index: 0;
+  }
 }
 
 /* ---------- Responsive ---------- */
