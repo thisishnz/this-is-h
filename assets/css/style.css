@@ -1398,6 +1398,32 @@ html.js-reveal .h-words .h-word.reveal {
   max-width: var(--max-narrow);
 }
 
+.article-header__kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.article-header__kicker .thinking-num {
+  font-size: 26px;
+}
+
+.article-header__kicker-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.article-header__kicker-meta .dot {
+  color: var(--pink-deep);
+}
+
 .article-header h1 {
   font-family: var(--font-display);
   font-weight: 600;
@@ -1405,22 +1431,7 @@ html.js-reveal .h-words .h-word.reveal {
   line-height: 1.18;
   letter-spacing: -0.01em;
   color: var(--ink);
-  margin-top: 18px;
-}
-
-.article-header__meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--ink-faint);
-}
-
-.article-header__meta .dot {
-  color: var(--pink-deep);
+  margin-top: 14px;
 }
 
 .article-header__deck {
@@ -1501,6 +1512,51 @@ html.js-reveal .h-words .h-word.reveal {
   font-size: clamp(21px, 2.4vw, 27px);
   line-height: 1.45;
   color: var(--green-deep);
+}
+
+/* Understated reference list — smaller and quieter than body text, not
+   styled like part of the essay itself. Optional: only present on
+   pieces that cite sources. */
+.article-sources {
+  max-width: 66ch;
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--stone-line);
+}
+
+.article-sources__label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+.article-sources__list {
+  list-style: decimal;
+  padding-left: 1.25em;
+  display: grid;
+  gap: 10px;
+}
+
+.article-sources__list li {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+
+.article-sources__list a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--stone-line);
+  transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
+}
+
+.article-sources__list a:hover {
+  color: var(--pink-deep);
+  text-decoration-color: currentColor;
 }
 
 .article-footer-nav {

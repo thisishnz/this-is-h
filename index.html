@@ -324,53 +324,28 @@
         </div>
 
         <!--
-          EMPTY STATE (current). Once the first piece is published,
-          replace the whole <div class="thinking-showcase"> block below
-          with the POPULATED version. Numbering: the piece being added
-          gets the next number up (001 for the very first article ever
-          published — see README section 11).
-
-          <div class="thinking-showcase thinking-showcase--populated reveal">
-            <article class="thinking-feature">
-              <span class="thinking-num thinking-feature__num" aria-hidden="true">003</span>
-              <div class="thinking-feature__body">
-                <p class="thinking-entry__meta">
-                  <span>Category</span><span class="dot" aria-hidden="true">&middot;</span><time datetime="YYYY-MM-DD">D Month YYYY</time>
-                </p>
-                <h3 class="thinking-feature__title"><a href="thinking/slug-3/">Newest article title</a></h3>
-                <p class="thinking-feature__excerpt">One or two sentence excerpt.</p>
-                <a class="text-link" href="thinking/slug-3/">Read <span aria-hidden="true">&rarr;</span></a>
-              </div>
-            </article>
-            <div class="thinking-more">
-              <article class="thinking-more__item">
-                <span class="thinking-num thinking-more__num" aria-hidden="true">002</span>
-                <div>
-                  <p class="thinking-entry__meta"><span>Category</span><span class="dot" aria-hidden="true">&middot;</span><time datetime="YYYY-MM-DD">D Month YYYY</time></p>
-                  <h4 class="thinking-more__title"><a href="thinking/slug-2/">Second-newest title</a></h4>
-                </div>
-              </article>
-              <article class="thinking-more__item">
-                <span class="thinking-num thinking-more__num" aria-hidden="true">001</span>
-                <div>
-                  <p class="thinking-entry__meta"><span>Category</span><span class="dot" aria-hidden="true">&middot;</span><time datetime="YYYY-MM-DD">D Month YYYY</time></p>
-                  <h4 class="thinking-more__title"><a href="thinking/slug-1/">Third-newest title</a></h4>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          With only one or two pieces published, drop the entries that
-          don't exist yet rather than inventing them — .thinking-more
-          can hold zero, one or two items.
+          Only one piece published so far, so no .thinking-more secondary
+          list yet and no .thinking-showcase--populated modifier (that
+          two-column layout only switches on once there's something to
+          show alongside the featured piece). When article 002 is
+          published: add .thinking-showcase--populated to the div below,
+          add a <div class="thinking-more"> containing one
+          <article class="thinking-more__item"> for 001, and move this
+          featured block's content to describe 002 instead. See README
+          section 11 for the full checklist and markup.
         -->
         <div class="thinking-showcase reveal">
-          <div class="thinking-feature thinking-feature--empty">
+          <article class="thinking-feature">
             <span class="thinking-num thinking-feature__num" aria-hidden="true">001</span>
             <div class="thinking-feature__body">
-              <p class="thinking-feature__status">The first piece is coming.</p>
+              <p class="thinking-entry__meta">
+                <time datetime="2026-08-26">26 August 2026</time>
+              </p>
+              <h3 class="thinking-feature__title"><a href="thinking/sometimes-doing-nothing-is-a-property-decision-too/">Sometimes doing nothing is a property decision too.</a></h3>
+              <p class="thinking-feature__excerpt">A thought about knowing when to act on a property issue, and when it can wait.</p>
+              <a class="text-link" href="thinking/sometimes-doing-nothing-is-a-property-decision-too/">Read <span aria-hidden="true">&rarr;</span></a>
             </div>
-          </div>
+          </article>
         </div>
 
         <a class="text-link thinking-teaser__all" href="thinking/">View all <span aria-hidden="true">&rarr;</span></a>

@@ -117,18 +117,25 @@
   <main id="main">
     <article>
 
-      <!-- ARTICLE HEADER -->
+      <!-- ARTICLE HEADER — number, then date (and reading time, and
+           category if it has one), then title, then deck. Number is
+           permanent for this piece — see README section 11. -->
       <header class="article-header">
         <div class="wrap reveal">
           <a class="back-link" href="../"><span aria-hidden="true">&larr;</span> All thinking</a>
-          <h1>[ARTICLE TITLE]</h1>
-          <p class="article-header__meta">
-            <time datetime="[YYYY-MM-DD]">[D Month YYYY]</time>
-            <span class="dot" aria-hidden="true">&middot;</span>
-            <span>[CATEGORY]</span>
-            <span class="dot" aria-hidden="true">&middot;</span>
-            <span>[N] min read</span>
+          <p class="article-header__kicker">
+            <span class="thinking-num article-header__num" aria-hidden="true">[NNN]</span>
+            <span class="article-header__kicker-meta">
+              <time datetime="[YYYY-MM-DD]">[D Month YYYY]</time>
+              <span class="dot" aria-hidden="true">&middot;</span>
+              <span>[N] min read</span>
+              <!-- Optional third item — delete the two lines below if this piece has no category:
+              <span class="dot" aria-hidden="true">&middot;</span>
+              <span>[CATEGORY]</span>
+              -->
+            </span>
           </p>
+          <h1>[ARTICLE TITLE]</h1>
           <p class="article-header__deck">[OPTIONAL ONE- OR TWO-SENTENCE DECK — sets up the piece before the body starts. Delete this <p> if the opening paragraph does that job well enough on its own.]</p>
         </div>
       </header>
