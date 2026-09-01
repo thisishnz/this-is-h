@@ -10,13 +10,18 @@ No build step, no framework, no dependencies. Semantic HTML, one CSS file, one s
 
 ```
 .
-├── index.html                 the entire site (one page)
+├── index.html                 the homepage, including the "Thinking" teaser section
+├── thinking/
+│   ├── index.html              the Thinking archive — every published piece, newest first
+│   ├── _template/index.html    starting point for a new article (see section 11) — not published, noindexed
+│   └── <article-slug>/index.html   one folder per published article, giving it a clean permanent URL
 ├── assets/
 │   ├── css/style.css          design system + all styling
 │   ├── js/main.js             mobile menu, sticky header, scroll-reveal, accordion behaviour
 │   └── img/
 │       ├── favicon.svg        placeholder favicon (forest-green square + "H")
-│       └── og-image.svg       placeholder social-share image (1200×630)
+│       ├── og-image.svg       placeholder social-share image (1200×630) for the homepage
+│       └── og/                 one social-share image per Thinking page (see section 11)
 ├── CNAME                      custom domain for GitHub Pages (thisish.org.nz)
 ├── robots.txt
 ├── sitemap.xml
@@ -103,6 +108,9 @@ Whichever you choose, add the records at your domain registrar (wherever `thisis
 | Accordion questions & answers ("What can H help with?") | `<div class="problems-list">` in `index.html` — each is a `<details class="problem">` block; add or remove blocks freely, the accordion behaviour is automatic |
 | The four core offer cards | `<div class="offer-grid">` |
 | The "Why H" copy | `<section class="section-alt" id="why-h">` — this is the one section that explains H (kept deliberately short; see section 6 below) |
+| The "Thinking" homepage teaser (latest article(s)) | `<section id="thinking">` in `index.html` — see section 11 below for how to add a new entry |
+| The Thinking archive (all published articles) | `thinking/index.html` — see section 11 |
+| An individual article | `thinking/<slug>/index.html` — see section 11 |
 
 ---
 
@@ -161,3 +169,26 @@ Per the brief, this first version does not include: pricing, fixed service packa
 ## 10. Continuing to edit this with Claude
 
 The code is intentionally plain: one HTML file, one CSS file, one small JS file, no build tooling, no component framework. To make further changes, just point Claude (or any editor) at `index.html` and `assets/css/style.css` directly — there's no compilation step, so changes are visible on refresh.
+
+---
+
+## 11. Adding a new Thinking article
+
+"Thinking" (nav label; the homepage section is introduced as "From H") is H's permanent, editorial home for longer pieces — deliberately not a newsletter archive and not a blog. It follows the same philosophy as the rest of the site: plain HTML, no templating engine, no database. Adding a new piece means touching a small, fixed set of files — the design never needs to change.
+
+Every article folder sits two levels deep (`thinking/<slug>/index.html`), which is why its relative links climb `../../` for the site root and `../` for the Thinking archive — keep that depth for any new article.
+
+**Steps:**
+
+1. **Duplicate the template.** Copy `thinking/_template/index.html` into a new folder, e.g. `thinking/lease-review-basics/index.html`. Use a short, lowercase, hyphenated slug — it becomes the permanent URL, so pick one you're happy to keep.
+2. **Fill in the placeholders.** Every `[BRACKETED]` value in the template — title, description, date, category, reading time, body copy — including the `<title>`, meta description, Open Graph/Twitter tags, canonical URL and the JSON-LD `Article` block near the top. Reading time is just a rough word-count/220wpm estimate; no need to be exact.
+3. **Delete the noindex line.** The template ships with `<meta name="robots" content="noindex,nofollow" />` so an unfinished copy never gets indexed by mistake. Remove that line once the article is ready to publish.
+4. **Add a social image.** Duplicate an existing file in `assets/img/og/` (e.g. `thinking-why-h-is-writing-this-down.svg`), save it as `assets/img/og/<slug>.svg`, and swap the title text (and category label) for the new piece. Same dark-green/cream/pink treatment as the rest of the site — no photography needed.
+5. **List it in the archive.** In `thinking/index.html`, copy one `<article class="thinking-entry">` block inside `.thinking-list` and fill it in with the same title, date, category, reading time and excerpt, linking to `<slug>/`. Newest goes first.
+6. **Update the homepage teaser.** In `index.html`, the `<section id="thinking">` shows at most the three most recent pieces (only the first gets the `thinking-entry--featured` styling). Add the new entry at the top; if there are now more than three, move the oldest of the three out (it's still safe in the full archive).
+7. **Add it to `sitemap.xml`.** One `<url>` block with the article's full URL and `<lastmod>`.
+8. **Delete the instructional comment** at the very top of the copied file (the one explaining these steps) — it's for the person editing, not for readers.
+
+That's the whole workflow — no build step, no CMS, nothing to redesign. The layout, typography and CTA at the bottom of every article stay identical by design; only the words change.
+
+**Email signup (Kit).** H's website is the permanent home of the writing; [Kit](https://kit.com) (formerly ConvertKit) remains the subscriber list and the thing that actually sends email — nothing here replaces or duplicates that. Every Thinking page reuses the *same* Kit form already embedded on the homepage (`data-uid="7c95191513"`, `https://h-102.kit.com/7c95191513/index.js`) — the archive page has the full-size version, and every article template already ships with a compact one after the "Talk to H" CTA, so there's no extra step when adding a new article. If that form is ever swapped for a different Kit form or list, update the `data-uid`/`src` pair in all four places it appears: `index.html`, `thinking/index.html`, `thinking/_template/index.html`, and any already-published article pages.
