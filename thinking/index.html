@@ -77,39 +77,24 @@
     <section>
       <div class="wrap">
         <!--
-          EMPTY STATE (current). Once the first piece is published,
-          replace the whole <div class="thinking-index"> block below
-          with the POPULATED version — one <article
-          class="thinking-index__item"> per piece, newest first
-          (highest number on top), duplicated for each new article. The
-          number is the piece's permanent position in the collection —
-          001 is whichever article is published first and never
-          changes, even as newer, higher-numbered pieces are added
-          above it. See README section 11 for the full checklist,
-          including keeping the homepage teaser (index.html) in sync.
-
-          <div class="thinking-index reveal">
-            <article class="thinking-index__item">
-              <span class="thinking-num thinking-index__num" aria-hidden="true">001</span>
-              <div class="thinking-index__body">
-                <p class="thinking-entry__meta">
-                  <span>Category</span><span class="dot" aria-hidden="true">&middot;</span><time datetime="YYYY-MM-DD">D Month YYYY</time><span class="dot" aria-hidden="true">&middot;</span><span>N min read</span>
-                </p>
-                <h2 class="thinking-index__title"><a href="slug/">Article title</a></h2>
-                <p class="thinking-index__excerpt">Short introduction or excerpt.</p>
-                <a class="text-link" href="slug/">Read <span aria-hidden="true">&rarr;</span></a>
-              </div>
-            </article>
-          </div>
+          Add each new article's <article class="thinking-index__item">
+          above this one (newest on top). 001 keeps its number forever —
+          see README section 11 for the full checklist and markup.
         -->
         <div class="thinking-index reveal">
-          <div class="thinking-index__item thinking-index__item--empty">
+          <article class="thinking-index__item">
             <span class="thinking-num thinking-index__num" aria-hidden="true">001</span>
             <div class="thinking-index__body">
-              <p class="thinking-index__status">The first piece is coming.</p>
-              <p class="thinking-index__note">In the meantime, if something you&rsquo;re dealing with sounds like it belongs here, <a href="../#contact">say hello</a>.</p>
+              <p class="thinking-entry__meta">
+                <time datetime="2026-08-26">26 August 2026</time>
+                <span class="dot" aria-hidden="true">&middot;</span>
+                <span>3 min read</span>
+              </p>
+              <h2 class="thinking-index__title"><a href="sometimes-doing-nothing-is-a-property-decision-too/">Sometimes doing nothing is a property decision too.</a></h2>
+              <p class="thinking-index__excerpt">A thought about knowing when to act on a property issue, and when it can wait.</p>
+              <a class="text-link" href="sometimes-doing-nothing-is-a-property-decision-too/">Read <span aria-hidden="true">&rarr;</span></a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
