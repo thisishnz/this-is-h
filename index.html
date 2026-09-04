@@ -324,28 +324,39 @@
         </div>
 
         <!--
-          Only one piece published so far, so no .notes-more secondary
-          list yet and no .notes-showcase--populated modifier (that
-          two-column layout only switches on once there's something to
-          show alongside the featured piece). When Note 02 is published:
-          add .notes-showcase--populated to the div below, add a
-          <div class="notes-more"> containing one
-          <article class="notes-more__item"> for Note 01, and move this
-          featured block's content to describe Note 02 instead. See
-          README section 11 for the full checklist and markup.
+          Two pieces published so far: the newest sits in .notes-feature
+          with full visual weight, and up to two earlier ones sit quietly
+          in .notes-more (one <article class="notes-more__item"> each).
+          When a new Note is published: move this featured block's
+          content to the new piece, and move whichever entry is no
+          longer the newest into .notes-more (dropping the oldest out of
+          .notes-more once there are more than two). See README
+          section 11 for the full checklist and markup.
         -->
-        <div class="notes-showcase reveal">
+        <div class="notes-showcase notes-showcase--populated reveal">
           <article class="notes-feature">
-            <span class="notes-num notes-feature__num" aria-hidden="true"><span class="notes-num__label">Note</span>01</span>
+            <span class="notes-num notes-feature__num" aria-hidden="true"><span class="notes-num__label">Note</span>02</span>
             <div class="notes-feature__body">
               <p class="notes-entry__meta">
-                <time datetime="2026-08-26">26 August 2026</time>
+                <time datetime="2026-09-04">4 September 2026</time>
               </p>
-              <h3 class="notes-feature__title"><a href="notes/sometimes-doing-nothing-is-a-property-decision-too/">Sometimes doing nothing is a property decision too.</a></h3>
-              <p class="notes-feature__excerpt">A thought about knowing when to act on a property issue, and when it can wait.</p>
-              <a class="text-link" href="notes/sometimes-doing-nothing-is-a-property-decision-too/">Read <span aria-hidden="true">&rarr;</span></a>
+              <h3 class="notes-feature__title"><a href="notes/prioritising-maintenance/">When everything needs doing, what do you do first?</a></h3>
+              <p class="notes-feature__excerpt">A simple way to prioritise maintenance when the list is longer than the budget.</p>
+              <a class="text-link" href="notes/prioritising-maintenance/">Read <span aria-hidden="true">&rarr;</span></a>
             </div>
           </article>
+
+          <div class="notes-more">
+            <article class="notes-more__item">
+              <span class="notes-num notes-more__num" aria-hidden="true"><span class="notes-num__label">Note</span>01</span>
+              <div>
+                <p class="notes-entry__meta">
+                  <time datetime="2026-08-26">26 August 2026</time>
+                </p>
+                <h3 class="notes-more__title"><a href="notes/sometimes-doing-nothing-is-a-property-decision-too/">Sometimes doing nothing is a property decision too.</a></h3>
+              </div>
+            </article>
+          </div>
         </div>
 
         <a class="text-link notes-teaser__all" href="notes/">View all Notes <span aria-hidden="true">&rarr;</span></a>
