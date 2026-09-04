@@ -2,19 +2,19 @@
   ARTICLE TEMPLATE — not a published page.
 
   How to use this:
-  1. Copy this whole "_template" folder, rename the copy to your article's
+  1. Copy this whole "_template" folder, rename the copy to your Note's
      slug (lowercase, hyphenated, short — e.g. "lease-review-checklist").
-     It must sit directly inside /thinking/ so the folder depth — and every
-     relative link below — stays correct.
+     It must sit directly inside /notes/ — that folder depth, and every
+     relative link below, stays correct.
   2. Find-and-replace every [BRACKETED] placeholder below with real content.
   3. Delete the <meta name="robots" content="noindex,nofollow" /> line near
      the top — that's what keeps this template itself out of Google; a real
-     article must NOT have it.
-  4. Add an entry for the new piece to thinking/index.html (the full
-     archive) and, if it's the newest piece, to the homepage teaser in
-     index.html — see README section 11 for both snippets.
+     Note must NOT have it.
+  4. Add an entry for the new piece to notes/index.html (the full archive)
+     and, if it's the newest piece, to the homepage teaser in index.html —
+     see README section 11 for both snippets.
   5. Make (or duplicate) an OG image at assets/img/og/[slug].svg — see
-     assets/img/og/thinking.svg as a starting point, swap the title text.
+     assets/img/og/notes-from-h.svg as a starting point, swap the title text.
   6. Update sitemap.xml with the new URL.
   7. Delete this instructional comment block before publishing.
 -->
@@ -23,11 +23,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" /><!-- DELETE this line when you publish a real article -->
+  <meta name="robots" content="noindex,nofollow" /><!-- DELETE this line when you publish a real Note -->
   <title>[ARTICLE TITLE] | This is H</title>
   <meta name="description" content="[ONE OR TWO SENTENCES — this doubles as the archive excerpt and the search-result description. Aim for 140–160 characters.]" />
 
-  <link rel="canonical" href="https://thisish.org.nz/thinking/[SLUG]/" />
+  <link rel="canonical" href="https://thisish.org.nz/notes/[SLUG]/" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg" />
@@ -37,7 +37,7 @@
   <meta property="og:site_name" content="This is H" />
   <meta property="og:title" content="[ARTICLE TITLE]" />
   <meta property="og:description" content="[SAME OR SIMILAR TO THE META DESCRIPTION ABOVE]" />
-  <meta property="og:url" content="https://thisish.org.nz/thinking/[SLUG]/" />
+  <meta property="og:url" content="https://thisish.org.nz/notes/[SLUG]/" />
   <meta property="og:image" content="https://thisish.org.nz/assets/img/og/[SLUG].svg" />
   <meta property="og:locale" content="en_NZ" />
   <meta property="article:published_time" content="[YYYY-MM-DD]" />
@@ -69,10 +69,10 @@
     "dateModified": "[YYYY-MM-DD]",
     "inLanguage": "en-NZ",
     "articleSection": "[CATEGORY]",
-    "url": "https://thisish.org.nz/thinking/[SLUG]/",
+    "url": "https://thisish.org.nz/notes/[SLUG]/",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://thisish.org.nz/thinking/[SLUG]/"
+      "@id": "https://thisish.org.nz/notes/[SLUG]/"
     },
     "image": "https://thisish.org.nz/assets/img/og/[SLUG].svg",
     "author": {
@@ -102,7 +102,7 @@
         <ul class="nav-primary">
           <li><a href="../../#home">Home</a></li>
           <li><a href="../../#what-we-do">What H helps with</a></li>
-          <li><a href="../">Thinking</a></li>
+          <li><a href="../">Notes</a></li>
           <li><a href="../../#why-h">Why H</a></li>
           <li><a href="../../#contact">Say hello</a></li>
         </ul>
@@ -122,9 +122,9 @@
            permanent for this piece — see README section 11. -->
       <header class="article-header">
         <div class="wrap reveal">
-          <a class="back-link" href="../"><span aria-hidden="true">&larr;</span> All thinking</a>
+          <a class="back-link" href="../"><span aria-hidden="true">&larr;</span> All notes</a>
           <p class="article-header__kicker">
-            <span class="thinking-num article-header__num" aria-hidden="true">[NNN]</span>
+            <span class="notes-num article-header__num" aria-hidden="true">Note [NN]</span>
             <span class="article-header__kicker-meta">
               <time datetime="[YYYY-MM-DD]">[D Month YYYY]</time>
               <span class="dot" aria-hidden="true">&middot;</span>
@@ -167,7 +167,7 @@
       <!-- BACK TO ARCHIVE -->
       <div class="wrap">
         <div class="article-footer-nav">
-          <a class="back-link" href="../"><span aria-hidden="true">&larr;</span> All thinking</a>
+          <a class="back-link" href="../"><span aria-hidden="true">&larr;</span> All notes</a>
         </div>
       </div>
 

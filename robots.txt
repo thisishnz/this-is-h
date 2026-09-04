@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /thinking/_template/
+Disallow: /notes/_template/
 
 Sitemap: https://thisish.org.nz/sitemap.xml
